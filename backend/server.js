@@ -210,12 +210,17 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 5000;
 
 // Connect to Database & Start Server
-connectDB().then(() => {
-  server.listen(PORT, () => {
-    console.log(`=================================================`);
-    console.log(`🌱 Parvarish Full-Stack Backend Server Running!`);
-    console.log(`📡 URL: http://localhost:${PORT}`);
-    console.log(`💬 Real-Time Socket.io & WebRTC Signaling Enabled`);
-    console.log(`=================================================`);
+if (!process.env.VERCEL) {
+  connectDB().then(() => {
+    server.listen(PORT, () => {
+      console.log(`=================================================`);
+      console.log(`🌱 Parvarish Full-Stack Backend Server Running!`);
+      console.log(`📡 URL: http://localhost:${PORT}`);
+      console.log(`💬 Real-Time Socket.io & WebRTC Signaling Enabled`);
+      console.log(`=================================================`);
+    });
   });
-});
+}
+
+export { app, server };
+export default app;
