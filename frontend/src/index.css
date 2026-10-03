@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: 'Noto Sans', 'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;
+    color: #241F4A;
+    background-color: #F7F5FF;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', 'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.015em;
+  }
+  /* Enhanced accessibility & legibility */
+  p, span, li, button, input {
+    letter-spacing: 0.005em;
+  }
+}
+
+/* Parentcraft Soft Violet Glass & Elevation */
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #E4DFF7;
+  box-shadow: 0 10px 30px rgba(60, 40, 140, 0.06);
+}
+
+.shadow-violet-soft {
+  box-shadow: 0 10px 30px rgba(60, 40, 140, 0.08);
+}
+
+.shadow-violet-lg {
+  box-shadow: 0 20px 40px -10px rgba(91, 72, 214, 0.16);
+}
+
+.shadow-sun-glow {
+  box-shadow: 0 6px 20px rgba(255, 194, 71, 0.45);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(60, 40, 140, 0.12);
+  border-color: #B2A6FF;
+}
+
+.concerns-pattern {
+  background: radial-gradient(#E4DFF7 1.6px, transparent 1.7px) 0 0/26px 26px;
+}
+
+/* Animations */
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(35px, 25px) scale(1.08); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes tickerMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-drift {
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+.animate-bob {
+  animation: bob 5s ease-in-out infinite;
+}
+
+.animate-bob-slow {
+  animation: bob 7s ease-in-out infinite reverse;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: tickerMove 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Soft Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F5FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B2A6FF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5B48D6;
+}
